@@ -3,6 +3,12 @@ function map(array, cb) {
   // Tiene que guardar el resultado devuelto por el callback en cada elemento dentro de un nuevo arreglo.
   // Retorna el nuevo arreglo.
   // Tu código:
+  len = array.length;
+  arraySalida = [];
+  for(i=0;i<len;i++ ){
+    arraySalida.push(cb(array[i]));
+  }
+  return arraySalida;
 }
 
 module.exports = map;

@@ -164,7 +164,92 @@ function sortArray(arrayOfStrings) {
     console.log(arrayOfStrings);
   }
 
+  function sort(sortBy, list) {
+    // La función sort recibe dos parámetros:
+    // sortBy: una letra (string).
+    // list: un arreglo de objetos.
+    // La función deberá devolver la lista de objetos ordenada de forma DESCENDIENTE
+    // a partir de la letra recibida. Por ejemplo:
+    // recibes --> ("a", [{ a: 1, b: 3 }, { a: 3, b: 2 }, { a: 2, b: 40 }])
+    // retorna --> [{ a: 3, b: 2 }, { a: 2, b: 40 }, { a: 1, b: 3 }]
+    // Tu código:
+ 
+    list.sort((a,b) => a[sortBy] - b[sortBy]);
+    console.log(list);
+    return list;
+ }
 
+ function crearGato(nombre, edad) {
+  // Debes crear un nuevo objeto con las propiedades "nombre" y "edad".
+  // Ambas propiedades deben tener el valor correspondiente recibido por parámetro.
+  // Además, agregar una propiedad con el nombre "meow".
+  // La propiedad "meow" será una función que retorne el string: "Meow!".
+  // Retornar el objeto.
+  // Tu código:
+  let objeto = {
+    "nombre": nombre,
+    "edad": edad,
+    "meow": "Meow!"
+    }
+    console.log(objeto);
+    return objeto.meow;
+}
+
+function agregarMetodoCalculoDescuento(objetoProducto) {
+  // Agrega una propiedad al "objetoProducto" con el nombre "calcularPrecioDescuento".
+  // Esta propiedad debe ser una función que multiplique el precio del producto por el porcentajeDeDescuento.
+  // El "objetoProducto" posee una propiedad "precio" y una propiedad "porcentajeDeDescuento".
+  // Luego debes restar del precio total del producto ese valor de descuento.
+  // Retornar el precio final.
+  // Ejemplo:
+  // Precio ---> 10
+  // PorcentajeDeDescuento ---> 0.2
+  // Precio final ---> 8
+  // Tu código:
+
+  objetoProducto.calcularPrecioDescuento = function() {
+    return (this.precio * this.porcentajeDeDescuento);
+      };
+  
+  precio = objetoProducto["precio"] - objetoProducto["calcularPrecioDescuento"];
+  console.log(precio);
+  return (precio);
+}
+
+const storeItem = {
+  precio: 80,
+  porcentajeDeDescuento: 0.1,
+  };
+
+const storeItem2 = {
+  precio: 5,
+  porcentajeDeDescuento: 0.5,
+};
+
+agregarMetodoCalculoDescuento(storeItem);
+agregarMetodoCalculoDescuento(storeItem2);
+
+/*test("Debe agregar la propiedad 'calcularPrecioDescuento' al objetoProducto", function () {
+  expect(
+     agregarMetodoCalculoDescuento(storeItem).calcularPrecioDescuento
+  ).toBeDefined();
+  expect(
+     agregarMetodoCalculoDescuento(storeItem2).calcularPrecioDescuento
+  ).toBeDefined();
+});
+
+test('Debe devolver el precio con descuento del producto', function () {
+  expect(
+     agregarMetodoCalculoDescuento(storeItem).calcularPrecioDescuento()
+  ).toBe(72);
+  expect(
+     agregarMetodoCalculoDescuento(storeItem2).calcularPrecioDescuento()
+  ).toBe(2.5);
+});
+
+
+//crearGato("gatito", 4);
+//sort("a", [{ a: 1, b: 3 }, { a: 3, b: 2 }, { a: 2, b: 40 }]);
 //deObjetoAarray({D: 1, B: 2, C: 3});
 //capToFront('soyHENRY');
 //capicua(123321);
@@ -172,4 +257,4 @@ function sortArray(arrayOfStrings) {
 //buscoInterseccion([4,2,3,1], [1,3,4]);
 //numberOfCharacters("adsjfdsfsfjsdjfhacabcsbajda");
 //asAmirror("The Henry Challenge is close!");
-sortArray(["You", "are", "beautiful", "looking"]);
+//sortArray(["You", "are", "beautiful", "looking"]);
